@@ -14,9 +14,11 @@ import {
   Input,
   Center,
   Image,
+  IconButton,
 } from "@chakra-ui/react";
 import GifComponent from "./GifComponent";
 import { GiphyFetch } from "@giphy/js-fetch-api";
+import { CloseIcon } from "@chakra-ui/icons";
 
 const CustomModal = ({ isOpen, onClose, setPostData, postData }) => {
   const [showGif, setShowGif] = React.useState(false);
@@ -82,12 +84,25 @@ const CustomModal = ({ isOpen, onClose, setPostData, postData }) => {
                 value={statusText}
                 onChange={(e) => setStatusText(e.target.value)}
               />
-              {selectedGif && (
-                <Image src={selectedGif} width="100%" height="250px" mt={2} />
-              )}
+
               <Center mt={2}>
                 <Text>or</Text>
               </Center>
+              {selectedGif && (
+                <Box position={"relative"}>
+                  <IconButton
+                    size={"sm"}
+                    icon={<CloseIcon />}
+                    position={"absolute"}
+                    right={1}
+                    top={1}
+                    onClick={() => {
+                      setSelectedGif("");
+                    }}
+                  />
+                  <Image src={selectedGif} width="100%" height="250px" mt={2} />
+                </Box>
+              )}
               {!showGif && (
                 <Button mt={3} isFullWidth onClick={() => setShowGif(!showGif)}>
                   GIF
