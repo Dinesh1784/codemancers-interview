@@ -21,7 +21,7 @@ const GifComponent = ({ searchData, selectedGifImage }) => {
 
   return (
     <Box maxH={"300px"} overflowY={"scroll"} mt={3}>
-      <Grid templateColumns="repeat(3, 1fr)" gap={2}>
+      <Grid templateColumns="repeat(3, 1fr)" gap={1}>
         {gifs.map((gif) => (
           <GridItem key={gif.id}>
             <Box
@@ -30,7 +30,12 @@ const GifComponent = ({ searchData, selectedGifImage }) => {
                 selectedGifImage(selectedGif);
               }}
             >
-              <img src={gif.images.original.url} width="100px" height="100px" />
+              <Image
+                src={gif.images.original.url}
+                width="100px"
+                height="100px"
+                loading="eager"
+              />
             </Box>
           </GridItem>
         ))}
