@@ -27,7 +27,7 @@ const CustomModal = ({ isOpen, onClose, setPostData, postData }) => {
   const [selectedGif, setSelectedGif] = React.useState("");
   const [statusText, setStatusText] = React.useState("");
 
-  const gf = new GiphyFetch("skg4LhLBEZulJD25xOxLZFQRxCHAV2Yy");
+  const gf = new GiphyFetch("");
   const searchGif = async () => {
     const { data } = await gf.search(gvalue, { limit: 30 });
     setSearchData(data);
