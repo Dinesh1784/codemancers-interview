@@ -5,7 +5,7 @@ import { Grid, GridItem, Image, Box } from "@chakra-ui/react";
 const GifComponent = ({ searchData, selectedGifImage }) => {
   const [gifs, setGifs] = React.useState([]);
   const [selectedGif, setSelectedGif] = React.useState("");
-  const gf = new GiphyFetch("skg4LhLBEZulJD25xOxLZFQRxCHAV2Yy");
+  const gf = new GiphyFetch("");
 
   React.useEffect(() => {
     if (searchData.length !== 0) {
